@@ -1,17 +1,25 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Link from 'next/link';
+import { useEffect, useState } from "react";
 import styles from '../styles/Home.module.css'
 import Table from "../components/Table"
+import { getAllCars, getSortedCars} from "../lib/data";
 
 export async function getServerSideProps() {
   console.log("fetch"); 
-  const res = await fetch("https://mvp-solo-staging.herokuapp.com/api/cars");
-  const data = await res.json()
+  const data = await getAllCars();
   return {props:{
     data
   }};
 }
 
-export default function Home({ data }) {
+
+export default function Home({data}) {
+  const [cars, setCars] = useState(data);
+  const clickButton = async () => {
+    const data = await getSortedCars("length");
+    setCars(data);
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -22,9 +30,13 @@ export default function Home({ data }) {
         Serarch Ur Vehicle
       </div>
       <div>
-        navbar
+      navbar
+      <button onClick={clickButton}>button</button>
       </div>
-      <Table cars={data}/>
+      <Link href="/filter/makers">
+        <a>go</a>
+      </Link>
+      <Table cars={cars} setCars={setCars}/>
     </div>
   )
 }
