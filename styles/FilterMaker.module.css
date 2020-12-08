@@ -1,0 +1,20 @@
+.makerLogo {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  width:50%;
+}
+
+.filterArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.searchButton {
+  text-align: center;
+  width:50%;
+  margin: 1rem 0;
+}

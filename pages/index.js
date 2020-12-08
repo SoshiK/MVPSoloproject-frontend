@@ -1,24 +1,27 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
-import styles from '../styles/Home.module.css'
-import Table from "../components/Table"
-import { getAllCars, getSortedCars} from "../lib/data";
+import styles from '../styles/Home.module.css';
+import Table from "../components/Table";
+import FilterMaker from "../components/FilterMaker";
+import { getAllCars, getMakers, getSortedCars} from "../lib/data";
 
 export async function getServerSideProps() {
   console.log("fetch"); 
   const data = await getAllCars();
+  const makers = await getMakers();
   return {props:{
-    data
+    data,
+    makers
   }};
 }
 
 
-export default function Home({data}) {
+export default function Home({data, makers}) {
   const [cars, setCars] = useState(data);
-  const clickButton = async () => {
-    const data = await getSortedCars("length");
-    setCars(data);
+  const [isSelected, setIsSelected] = useState(false);
+  const searchBar = () => {
+    setIsSelected(!isSelected);
   }
   return (
     <div className={styles.container}>
@@ -31,11 +34,19 @@ export default function Home({data}) {
       </div>
       <div>
       navbar
-      <button onClick={clickButton}>button</button>
+      <button onClick={searchBar}>Select Maker</button>
       </div>
-      <Link href="/filter/makers">
-        <a>go</a>
-      </Link>
+      {(() => {
+        if(isSelected) {
+          return (
+      <div>
+        <FilterMaker makers={makers} setCars={setCars} setIsSelected={setIsSelected}/>
+      </div>
+          );
+        } else {
+          return null;
+        }
+      })()}
       <Table cars={cars} setCars={setCars}/>
     </div>
   )
