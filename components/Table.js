@@ -14,17 +14,19 @@ export default function Table(props) {
   }
 
   return (
-    <div>
-      <table>
-        <tbody>
+    <div className="py-2">
+      <table className="table-fixed border border-collapse border-blue-400">
+        <thead>
           <tr>
-            <th>Logo</th>
-            <th>Name</th>
-            <th onClick={clickButton}>Length</th>
-            <th onClick={clickButton}>Height</th>
-            <th onClick={clickButton}>Width</th>
-            <th onClick={clickButton}>Price</th>
+            <th className="border border-blue-400 font-normal w-16">Logo</th>
+            <th className="border border-blue-400 font-normal w-20">Name</th>
+            <th onClick={clickButton} className="border border-blue-400 font-normal w-16">Length</th>
+            <th onClick={clickButton} className="border border-blue-400 font-normal w-16">Height</th>
+            <th onClick={clickButton} className="border border-blue-400 font-normal w-16">Width</th>
+            <th onClick={clickButton} className="border border-blue-400 font-normal w-20">Price</th>
           </tr>
+        </thead>
+        <tbody>
           {list}
         </tbody>
       </table>
