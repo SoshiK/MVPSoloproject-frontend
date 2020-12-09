@@ -1,30 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## SOLO MVP PROJECT
 
-## Getting Started
+**このリポジトリはCode Chrysalisの生徒であるときに作成しました（This was created during my time as a student at Code Chrysalis）**
 
-First, run the development server:
+# Search Ur Vehicle
+![ロゴ](./public/logo.jpg)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## About
+車の全長・全高・全幅・価格を比較できるアプリを作りました。<br>
+[こちらから使用できます。](https://mvp-soloproject-frontend.vercel.app/)<br>
+バックエンドは[このリポジトリ](https://github.com/SoshiK/MVPSoloproject-backend)です。<br>
+(2020/12/9 作成途中)<br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Used
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Next.js
+- Tailwind
+- Vercel
 
-## Learn More
+## Future features
 
-To learn more about Next.js, take a look at the following resources:
+- [] Insert機能の実装
+- [] Google画像検索の追加
+- [] styleの修正
+- [] レスポンシブwebデザイン対応
+- [] iOSアプリ化
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Link
+<div>ロゴは <a href="https://www.designevo.com/jp/logo-maker/" title="無料オンラインロゴメーカー">DesignEvo</a> ロゴメーカーさんに作られる</div>
