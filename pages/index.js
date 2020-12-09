@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import { useEffect, useState } from "react";
-import styles from '../styles/Home.module.css';
+import { useState } from "react";
 import Table from "../components/Table";
 import FilterMaker from "../components/FilterMaker";
-import { getAllCars, getMakers, getSortedCars} from "../lib/data";
+import Navbar from "../components/Navbar";
+import NavItem from "../components/NavItem";
+import { getAllCars, getMakers} from "../lib/data";
 
 export async function getServerSideProps() {
   console.log("fetch"); 
@@ -23,19 +23,27 @@ export default function Home({data, makers}) {
   const searchBar = () => {
     setIsSelected(!isSelected);
   }
+  const showAll = () => {
+    setCars(data);
+  }
   return (
-    <div className={styles.container}>
+    <div className="min-h-full px-2 flex flex-col items-center">
       <Head>
-        <title>MVP Solo</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>SearchUrVehicle</title>
+        <link rel="icon" href="/logo.jpg" />
       </Head>
-      <div>
-        Serarch Ur Vehicle
+      <div className="bg-black w-full">
+        <img
+          src="/logo.jpg" 
+          className="w-24"
+
+        />
       </div>
-      <div>
-      navbar
-      <button onClick={searchBar}>Select Maker</button>
-      </div>
+      <Navbar>
+        <NavItem click={searchBar}>Search</NavItem>
+        <NavItem click={showAll}>ShowAll</NavItem>
+        <NavItem>Insert</NavItem>
+      </Navbar>
       {(() => {
         if(isSelected) {
           return (
@@ -48,6 +56,7 @@ export default function Home({data, makers}) {
         }
       })()}
       <Table cars={cars} setCars={setCars}/>
+    <div className="text-xs font-thin my-5">ロゴは <a href="https://www.designevo.com/jp/logo-maker/" title="無料オンラインロゴメーカー">DesignEvo</a> ロゴメーカーさんに作られる</div>
     </div>
   )
 }

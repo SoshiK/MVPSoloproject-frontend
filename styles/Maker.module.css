@@ -1,11 +1,7 @@
 .logo {
-  width: 5rem;
-  border: solid 0.2rem white;
-  margin: 0.2rem; 
+  @apply w-20 border-white border-solid border-2 m-1;
 }
 
 .logoClick {
-  width: 5rem;
-  border: solid 0.2rem aqua;
-  margin: 0.2rem; 
+  @apply w-20 border-blue-400 border-solid border-2 m-1;
 }
