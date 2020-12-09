@@ -1,4 +1,3 @@
-import styles from "../styles/TableList.module.css";
 export default function TableList (props) {
   return(
     <tr>
