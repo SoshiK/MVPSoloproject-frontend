@@ -3,7 +3,7 @@ export default function NavItem(props) {
     <li>
       <button
         onClick={props.click}
-        className={"block px-4 py-2 text-white"}>
+        className={"block px-4 py-2 text-white font-light text-sm"}>
         {props.children}
       </button>
     </li>
